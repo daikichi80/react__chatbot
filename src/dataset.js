@@ -2,15 +2,13 @@ const defaultDataset = {
   init: {
     answers: [
       { content: "仕事を依頼したい", nextId: "job_offer" },
-      {
-        content: "エンジニアのキャリアについて相談したい",
-        nextId: "consultant",
-      },
+      { content: "エンジニアのキャリアについて相談したい",nextId: "consultant" },
       { content: "学習コミュニティについて知りたい", nextId: "community" },
       { content: "お付き合いしたい", nextId: "dating" },
     ],
     question: "こんにちは！🐯トラハックへのご用件はなんでしょうか？",
   },
+
   job_offer: {
     answers: [
       { content: "Webサイトを制作してほしい", nextId: "website" },
@@ -20,6 +18,7 @@ const defaultDataset = {
     ],
     question: "どのようなお仕事でしょうか？",
   },
+
   website: {
     answers: [
       { content: "問い合わせる", nextId: "contact" },
@@ -27,6 +26,7 @@ const defaultDataset = {
     ],
     question: "Webサイト細作についてですね。コチラからお問い合わせできます。",
   },
+
   webapp: {
     answers: [
       { content: "問い合わせる", nextId: "contact" },
@@ -34,6 +34,7 @@ const defaultDataset = {
     ],
     question: "Webアプリ開発についてですね。コチラからお問い合わせできます。",
   },
+
   automation_tool: {
     answers: [
       { content: "問い合わせる", nextId: "contact" },
@@ -42,6 +43,7 @@ const defaultDataset = {
     question:
       "自動化ツール開発についてですね。コチラからお問い合わせできます。",
   },
+
   other_jobs: {
     answers: [
       { content: "問い合わせる", nextId: "contact" },
