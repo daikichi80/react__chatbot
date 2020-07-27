@@ -40,8 +40,14 @@ export default class App extends React.Component {
   selectAnswer = (selectedAnswer,nextQuestionId) => {
     switch (true) {
       case (nextQuestionId === 'init'):
-        this.displayNextQuestion(nextQuestionId);
+        setTimeout(()=>this.displayNextQuestion(nextQuestionId),500);
         break;
+      case (/^https:*/.test(nextQuestionId)):
+        const a = document.createElement('a');
+        a.href = nextQuestionId;
+        a.target = 'blank'
+        a.click();
+        break
       default:
         const chats = this.state.chats;
         chats.push({
@@ -53,7 +59,7 @@ export default class App extends React.Component {
           chats: chats
         });
 
-        this.displayNextQuestion(nextQuestionId);
+        setTimeout(() => this.displayNextQuestion(nextQuestionId),1000);
         break;
       
     }
@@ -98,6 +104,13 @@ export default class App extends React.Component {
     this.selectAnswer(initAnswer, this.state.currentId);
   };
 
+
+  componentDidUpdate() {
+    const scrollArea = document.getElementById('scroll-area') ;
+    if (scrollArea) {
+      scrollArea.scrollTop = scrollArea.scrollHeight;
+    }
+  }
 //レンダーメソッド（こいつが走った後にcomponentDidMountが走る。そこでsetStateしているので再度renderが走る。これで画面が書き換わる。componentDidMountは一度だけしか実行されない
   render() {
     return (
